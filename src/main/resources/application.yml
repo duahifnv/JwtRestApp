@@ -1,0 +1,23 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /jwt-rest
+jwt:
+  secret: 3f4b2a7e8f1c3d2a0b5e6c8f2087a4d9c6e5f0bcb16a14f22986f4084e6c6a2d
+  lifetime: 30m
+flyway:
+  locations: classpath:db/migration
+spring:
+  application:
+    name: JwtAppV2
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
