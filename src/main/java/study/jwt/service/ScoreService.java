@@ -61,7 +61,7 @@ public class ScoreService {
     }
     public ResponseEntity<?> addNewScore(Principal principal, BigDecimal score) {
         if (score.compareTo(BigDecimal.ZERO) < 0) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+            return ResponseEntity.badRequest()
                     .body("Score shouldn't be less than zero");
         }
         return ResponseEntity.ok(
@@ -77,7 +77,7 @@ public class ScoreService {
         scoreRepository.deleteById(id);
         return ResponseEntity.ok().build();
     }
-    private Long getUserIdByUsername(String username) {
+    public Long getUserIdByUsername(String username) {
         Optional<User> userByUsername = userService.findUserByUsername(username);
         return userByUsername.get().getUserId();
     }

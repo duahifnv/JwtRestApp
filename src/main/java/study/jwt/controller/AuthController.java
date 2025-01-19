@@ -1,7 +1,5 @@
 package study.jwt.controller;
 
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,9 +16,6 @@ import study.jwt.service.AuthService;
 public class AuthController {
     private final AuthService authService;
     @PostMapping("/authenticate")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Успешная выборка")
-    })
     public ResponseEntity<?> createAuthToken(@RequestBody AuthRequest authRequest) {
         return authService.createAuthToken(authRequest);
     }
